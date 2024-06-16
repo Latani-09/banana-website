@@ -1,0 +1,329 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+  --bananaGreen: rgb(39, 205, 12);
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: white;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Layout header footer styles */
+  .homeContainer {
+    @apply mx-0 w-full text-center;
+  }
+
+
+  .teamContainer {
+    @apply px-5 md:px-10 lg:px-20 xl:w-3/4 lg:mx-auto text-center py-4 marker:sm:py-10 lg:pb-20;
+  }
+
+  .serviceContainer {
+    @apply px-5 md:px-10 lg:px-20 xl:w-3/4 lg:mx-auto text-center py-4 sm:py-10 lg:pb-20;
+  }
+
+  .aboutusContainer {
+    @apply grid grid-cols-4 px-5 md:px-10 lg:px-20 xl:w-3/4 lg:mx-auto pb-4 sm:pb-10 lg:pb-24 w-full;
+    box-sizing: border-box;
+  }
+
+  .sectionTitle {
+    @apply text-xl md:text-2xl lg:text-[40px] font-bold text-left pt-5 pb-2 sm:pt-20 sm:pb-4;
+    color: #595959;
+
+  }
+
+  .header ul li {
+    color: white;
+  }
+
+  .navContainer {
+    @apply flex w-full items-end shadow-md justify-between py-5;
+    
+  }
+
+  .titleContainer {
+    @apply flex-initial w-3/4 sm:w-2/5 my-auto text-left pl-5 sm:text-center lg:text-end;
+
+  }
+
+  .titleContainer h5 {
+    @apply text-xl md:text-2xl lg:text-[40px];
+  }
+
+
+  /* Header */
+  .navBar {
+    @apply flex-col flex-grow items-end justify-end sm:items-center sm:flex-row sm:flex;
+  }
+
+  @media screen and (max-width:480px) {
+
+    @keyframes FadeIn {
+      from {
+        width: 0;
+        opacity: 0;
+      }
+
+      to {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+
+
+
+    .navBar {
+      position: fixed;
+      overflow-x: hidden;
+      top: 80px;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 30;
+      background-color: white;
+      /* Initial state for animation */
+      opacity: 0;
+      transform: translateX(100%);
+
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      /*--------- 
+   
+    ----------------------To remove animation*/
+    }
+
+    .navBar.show {
+      
+      
+      /* Apply when menu is open */
+      opacity: 1;
+      transform: translateX(0);
+      right: 0;
+    }
+
+  }
+
+
+  .nav {
+    @apply border-y-2 sm:block sm:border-none text-[var(--bananaGreen)] sm:text-black bg-white hover:rounded-md;
+  }
+
+  .nav a {
+    @apply p-4;
+    display: block;
+  }
+
+  .nav:hover {
+    background-color: var(--bananaGreen) !important;
+    color: white !important;
+  }
+
+  .navItemsContainer {
+    @apply flex flex-col flex-grow items-end mr-5 md:items-center;
+  }
+
+
+
+  .frontImageContainer {
+    @apply hidden sm:block sm:h-[700px] md:h-[600px] sm:relative sm:w-full mb-5 md:mb-20;
+  }
+
+  .gradient {
+    @apply z-10 absolute top-0 bottom-0 left-0 right-0;
+    background-image: linear-gradient(to left, rgba(255, 245, 0, 0.52), rgba(32, 226, 1, 0.52));
+  }
+
+
+
+
+  .bgImgLeft {
+    @apply z-0 absolute left-0 right-0 md:right-[37.5%] top-0 bottom-0;
+  }
+
+  .bgImgRight {
+    @apply hidden md:block z-0 absolute md:left-[62.5%] right-0 top-0 bottom-0;
+  }
+
+  .bgImgRight .image {
+    @apply w-full h-auto;
+  }
+
+  /* Contact us member cards styles */
+  /* Contact us member cards styles */
+  .memberContainer {
+    @apply flex flex-row flex-wrap;
+  }
+
+  .memberCard {
+    @apply mt-10 drop-shadow-lg pb-5 px-2 mx-auto w-full sm:w-3/5 lg:w-1/5;
+    max-width: 300px;
+  }
+
+  .imageContainer {
+    @apply relative mb-5 h-36;
+    padding-top: 100%;
+
+    background-position: center;
+  }
+
+  .profileImg {
+    @apply object-cover;
+  }
+
+  .imageContainer div h5 {
+    @apply text-lg text-white bg-black opacity-60 p-2;
+  }
+
+  .imageContainer p {
+    @apply text-sm text-white bg-teal-950 opacity-70 p-2 -mx-5 place-content-center;
+  }
+
+
+  /* About us styles */
+
+
+  .aboutusImage {
+    @apply hidden col-span-4 md:col-span-2 md:grid md:grid-cols-3 h-96 md:h-full pt-20 lg:pt-10;
+  }
+
+  .leftDiv {
+    @apply col-span-2 relative overflow-hidden;
+  }
+
+  .imgLeft {
+    @apply absolute p-5 left-0 top-0 bottom-20 right-5;
+  }
+
+  .rightDiv {
+    @apply col-span-1 relative overflow-hidden;
+
+  }
+
+  .imgRight {
+    @apply absolute left-0 top-20 bottom-10;
+
+  }
+
+  .square {
+    @apply h-[60px] w-[60px] absolute right-5 bottom-0;
+    background-color: var(--bananaGreen)
+  }
+
+  .squareRight {
+    @apply bg-none h-[60px] w-[60px] absolute left-0 top-0
+  }
+
+
+
+  .imgRight {
+    @apply relative pt-5 h-full;
+
+  }
+
+
+
+
+  .whowe {
+    @apply col-span-4 md:col-span-2 text-justify xl:pr-10 pb-10 md:pb-0;
+  }
+
+  .sectionTitle {
+    @apply text-left;
+  }
+
+  .whowe p {
+    @apply text-sm text-justify mb-4 mr-0 md:mr-5;
+  }
+
+  .contactusBtn {
+    @apply relative flex-col;
+
+  }
+
+  .contactusBtn button {
+    @apply px-4 py-3 text-white text-[24px];
+    font-weight: 400;
+    background-color: #27CD0C;
+  }
+
+
+
+
+  .teamDesc {
+    @apply text-justify text-sm;
+  }
+
+
+
+  .services {
+    @apply flex flex-col items-center justify-center relative mt-10;
+  }
+
+  .serviceContainer p {
+    @apply text-justify p-2;
+  }
+
+  .serviceContainer li {
+    @apply text-left p-2;
+  }
+
+  .serviceList {
+
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .serviceList li {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    /* Adjust as needed */
+  }
+
+  .serviceList li svg {
+    margin-right: 10px;
+    /* Space between bullet and text */
+  }
+
+  footer {
+    @apply bg-black opacity-95 p-10 sm:p-5 pt-5;
+
+
+    color: white
+  }
+
+  .contact {
+    @apply flex flex-col mt-10 sm:flex-row sm:flex-wrap border-b-2 border-b-white mx-2 sm:mx-10;
+    @apply px-5 md:px-10 lg:px-20 xl:w-3/4 lg:mx-auto;
+    border-style: solid;
+
+
+  }
+
+  .footerBrandName {
+    @apply sm:first-letter:w-1/2 text-[18px] md:text-[24px] lg:text-[28px] flex-1 font-medium;
+  }
+
+  .footerContact {
+    @apply text-justify sm:text-right text-[14px] sm:text-[18px] md:text-[20px] lg:text-[24px] pb-2;
+  }
+
+  .TandC {
+    @apply text-right mr-5 sm:mr-20 text-sm mb-20;
+    @apply px-5 md:px-10 lg:px-20 xl:w-3/4 lg:mx-auto;
+  }
+
+}
