@@ -8,5 +8,5 @@ const FadeInSection = ({ inView, children }) => {
     </div>
   );
 };
-
+/***comment */
 export default FadeInSection;
